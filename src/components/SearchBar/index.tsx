@@ -1,5 +1,6 @@
 import { PlusCircle } from "phosphor-react";
-import { SearchBarContainer } from "./styles";
+
+import { CreateNewTaskButton, SearchBarContainer } from "./styles";
 
 export function SearchBar() {
     return(
@@ -8,10 +9,16 @@ export function SearchBar() {
             type="text" 
             placeholder="Adicione uma nova tarefa" />
 
-            <button type="submit">
-                Criar
-                <PlusCircle size={16} color="#F2F2F2"/>
-            </button>
+
+
+
+ 
+           <CreateNewTaskButton type="submit"> 
+            Criar 
+            <PlusCircle size={16} color="#F2F2F2"/>
+            </CreateNewTaskButton>  
+
+
         </SearchBarContainer>
     )
 }

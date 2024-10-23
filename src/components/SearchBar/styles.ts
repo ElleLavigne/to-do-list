@@ -17,8 +17,10 @@ export const SearchBarContainer = styled.form`
     } 
   }
 
-  
-  button{
+`
+
+export const CreateNewTaskButton = styled.button`
+ 
     display: flex;
     align-items: center;
     gap: 0.50rem;
@@ -39,6 +41,6 @@ export const SearchBarContainer = styled.form`
       background: ${(props) => props.theme["blue"]};
       color: ${(props) => props.theme["gray-100"]};
       transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-    }
+    
   }
 `

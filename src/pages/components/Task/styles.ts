@@ -15,7 +15,6 @@ export const TaskContainer = styled.li`
 export const Label = styled.label<LabelProps>`
  color: ${(props) => props.checked ? props.theme["gray-300"] : props.theme["gray-100"]};
  transition: all 250ms;
-
  text-decoration: ${props => props.checked ? 'line-through' : undefined};
 
 `
@@ -24,8 +23,7 @@ export const CheckBoxRoot = styled(Checkbox.Root)`
   background-color: ${(props) =>
     props.checked ? props.theme.purple : "transparent"};
 
-  border: 2px solid
-    ${(props) => (props.checked ? "transparent" : props.theme.blue)};
+  border: 2px solid ${(props) => (props.checked ? "transparent" : props.theme.blue)};
   transition: all 250ms;
   border-radius: 50%;
   width: 1.5rem;

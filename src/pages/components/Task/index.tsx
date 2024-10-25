@@ -4,7 +4,12 @@ import * as Checkbox from "@radix-ui/react-checkbox";
 import { Check } from "phosphor-react";
 import { useState } from "react";
 
-export function Task() {
+
+interface TaskProps{
+  description: string
+}
+
+export function Task(props: TaskProps) {
   const [isChecked, setIsChecked] = useState(false);
 
   return (
@@ -18,13 +23,11 @@ export function Task() {
       >
         <Checkbox.Indicator>
           <Check size={12} color="#F2F2F2" weight="bold"/>
-          {/* <CheckIcon color="#F2F2F2"/> */}
         </Checkbox.Indicator>
       </CheckBoxRoot>
 
-      <Label checked={isChecked} htmlFor="c1">
-        Integer urna interdum massa libero auctor neque turpis turpis semper.
-        Duis vel sed fames integer.
+      <Label  checked={isChecked} htmlFor="c1">
+        {props.description}
       </Label>
     </TaskContainer>
   );

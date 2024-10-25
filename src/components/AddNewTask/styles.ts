@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SearchBarContainer = styled.form`
+export const AddNewTaskContainer = styled.form`
  display: flex;
  gap: 0.50rem;
 

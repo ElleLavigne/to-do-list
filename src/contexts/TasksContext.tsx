@@ -2,7 +2,7 @@ import { createContext, ReactNode, useEffect, useState } from "react"
 import { api } from "../lib/axios"
 
 
-interface ITask{
+export interface ITask{
     id: number
     description: string
     cheked: boolean
@@ -18,6 +18,7 @@ description: string
 interface TasksContextType{
 tasks: ITask[]
 createTask: (data:CreateTask) => Promise<void>
+updateList: (newValue: boolean, id: number) => void
 
 }
 
@@ -40,6 +41,18 @@ export function TasksProvider({ children }: TasksProviderProps){
     }, [])
 
 
+   function updateList(newValue: boolean, id: number){
+        const index = tasks.findIndex((item) => {
+           return item.id === id
+         })
+         const updateTasks = [...tasks]
+         const oldItem = tasks[index]
+         const updateItem: ITask = {...oldItem, cheked: newValue}
+         
+         updateTasks.splice(index, 1, updateItem) 
+         setTasks(updateTasks)
+       }
+
     async function createTask(data: CreateTask ){
 
     const response = await api.post('tasks', {
@@ -54,7 +67,8 @@ export function TasksProvider({ children }: TasksProviderProps){
         <TasksContext.Provider value={
             {
                 tasks, 
-                createTask
+                createTask,
+                updateList
             }
             }>
             {children}

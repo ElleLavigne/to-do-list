@@ -2,15 +2,20 @@
 import { CheckBoxRoot, Label, LeftContainer, TaskContainer } from "./styles";
 import * as Checkbox from "@radix-ui/react-checkbox";
 import { Check, Trash } from "phosphor-react";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ITask, TasksContext } from "../../../contexts/TasksContext";
 
 
 interface TaskProps{
   description: string
+  id: number
 }
 
 export function Task(props: TaskProps) {
   const [isChecked, setIsChecked] = useState(false);
+  const {tasks, updateList} = useContext(TasksContext)
+ 
+
 
   return (
     <TaskContainer>
@@ -20,7 +25,9 @@ export function Task(props: TaskProps) {
         id="c1"
         onCheckedChange={(newValue: boolean) => {
           setIsChecked(newValue);
+          updateList(newValue, props.id)
         }}
+      
       >
         <Checkbox.Indicator>
           <Check size={12} color="#F2F2F2" weight="bold"/>

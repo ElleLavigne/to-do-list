@@ -26,7 +26,7 @@ export function TasksList() {
                
             </Headline>
             {tasks.map((task) => {
-                return <Task description={task.description} key={task.id}/>
+                return <Task id={task.id} description={task.description} key={task.id}/>
             })}
           
         </TasksContainer>

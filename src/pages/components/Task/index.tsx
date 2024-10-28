@@ -27,6 +27,7 @@ export function Task(props: TaskProps) {
         </Checkbox.Indicator>
       </CheckBoxRoot>
 
+
       <Label  checked={isChecked} htmlFor="c1">
         {props.description}
       </Label>

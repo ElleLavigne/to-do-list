@@ -8,16 +8,20 @@ import { TasksContext } from "../../../contexts/TasksContext";
 export function TasksList() {
    const {tasks} = useContext(TasksContext)
 
+    const completedTask = tasks.filter((item) => {
+        return item.cheked === true 
+    })
+    
     return(
         <TasksContainer>
             <Headline>
                 <CreatedTasks>
                 <p>Tarefas criadas</p>
-                <span>5</span>
+                <span>{tasks.length}</span>
                 </CreatedTasks>
                 <CompletedTasks>
                     <p>Concluídas</p>
-                    <span>2 de 5</span>
+                    <span>{completedTask.length} de {tasks.length}</span>
                 </CompletedTasks>
                
             </Headline>

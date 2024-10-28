@@ -8,9 +8,21 @@ interface LabelProps {
 export const TaskContainer = styled.li`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0.75rem;
+  padding: 1rem;
+  background-color: ${props => props.theme["gray-500"]};
+  border: 1px solid ${props => props.theme["gray-400"]};
+  border-radius: 8px;
+
 
 `;
+export const LeftContainer = styled.div`
+display: flex;
+align-items: center;
+gap: 0.75rem;
+
+`
 
 export const Label = styled.label<LabelProps>`
  color: ${(props) => props.checked ? props.theme["gray-300"] : props.theme["gray-100"]};
@@ -18,7 +30,6 @@ export const Label = styled.label<LabelProps>`
  text-decoration: ${props => props.checked ? 'line-through' : undefined};
 
 `
-
 export const CheckBoxRoot = styled(Checkbox.Root)`
   background-color: ${(props) =>
     props.checked ? props.theme.purple : "transparent"};
@@ -32,6 +43,7 @@ export const CheckBoxRoot = styled(Checkbox.Root)`
   align-items: center;
   justify-content: center;
 `;
+
 
 export const CheckBoxIndicator = styled(Checkbox.Indicator)`
   display: flex;

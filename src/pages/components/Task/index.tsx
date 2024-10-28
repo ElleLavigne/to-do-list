@@ -1,7 +1,7 @@
 // import { CheckIcon } from "@radix-ui/react-icons";
-import { CheckBoxRoot, Label, TaskContainer } from "./styles";
+import { CheckBoxRoot, Label, LeftContainer, TaskContainer } from "./styles";
 import * as Checkbox from "@radix-ui/react-checkbox";
-import { Check } from "phosphor-react";
+import { Check, Trash } from "phosphor-react";
 import { useState } from "react";
 
 
@@ -14,6 +14,7 @@ export function Task(props: TaskProps) {
 
   return (
     <TaskContainer>
+      <LeftContainer>
       <CheckBoxRoot
         checked={isChecked}
         id="c1"
@@ -29,6 +30,8 @@ export function Task(props: TaskProps) {
       <Label  checked={isChecked} htmlFor="c1">
         {props.description}
       </Label>
+      </LeftContainer>
+      <Trash size={24} color="#808080"/>
     </TaskContainer>
   );
 }

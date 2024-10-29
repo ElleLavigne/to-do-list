@@ -3,17 +3,18 @@ import { CheckBoxRoot, Label, LeftContainer, TaskContainer } from "./styles";
 import * as Checkbox from "@radix-ui/react-checkbox";
 import { Check, Trash } from "phosphor-react";
 import { useContext, useState } from "react";
-import { ITask, TasksContext } from "../../../contexts/TasksContext";
+import { TasksContext } from "../../../contexts/TasksContext";
 
 
 interface TaskProps{
   description: string
   id: number
+  checked: boolean
 }
 
 export function Task(props: TaskProps) {
-  const [isChecked, setIsChecked] = useState(false);
-  const {tasks, updateList} = useContext(TasksContext)
+  const [isChecked, setIsChecked] = useState(props.checked);
+  const {updateList, deleteTask} = useContext(TasksContext)
  
 
 
@@ -39,7 +40,13 @@ export function Task(props: TaskProps) {
         {props.description}
       </Label>
       </LeftContainer>
+      <button
+      onClick={() => {
+        deleteTask(props.id)
+      }}
+      >
       <Trash size={24} color="#808080"/>
+      </button>
     </TaskContainer>
   );
 }

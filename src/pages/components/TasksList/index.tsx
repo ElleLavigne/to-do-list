@@ -9,7 +9,7 @@ export function TasksList() {
    const {tasks} = useContext(TasksContext)
 
     const completedTask = tasks.filter((item) => {
-        return item.cheked === true 
+        return item.checked === true 
     })
     
     return(
@@ -26,7 +26,7 @@ export function TasksList() {
                
             </Headline>
             {tasks.map((task) => {
-                return <Task id={task.id} description={task.description} key={task.id}/>
+                return <Task checked={task.checked} id={task.id} description={task.description} key={task.id}/>
             })}
           
         </TasksContainer>

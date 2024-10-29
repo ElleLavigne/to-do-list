@@ -1,5 +1,5 @@
 // import { CheckIcon } from "@radix-ui/react-icons";
-import { CheckBoxRoot, Label, LeftContainer, TaskContainer } from "./styles";
+import { CheckBoxRoot, DeleteItemButton, Label, LeftContainer, TaskContainer } from "./styles";
 import * as Checkbox from "@radix-ui/react-checkbox";
 import { Check, Trash } from "phosphor-react";
 import { useContext, useState } from "react";
@@ -40,13 +40,13 @@ export function Task(props: TaskProps) {
         {props.description}
       </Label>
       </LeftContainer>
-      <button
+      <DeleteItemButton
       onClick={() => {
         deleteTask(props.id)
       }}
       >
       <Trash size={24} color="#808080"/>
-      </button>
+      </DeleteItemButton>
     </TaskContainer>
   );
 }

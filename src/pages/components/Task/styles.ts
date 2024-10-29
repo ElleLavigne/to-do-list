@@ -50,3 +50,8 @@ export const CheckBoxIndicator = styled(Checkbox.Indicator)`
   align-items: center;
   justify-content: center;
 `;
+
+export const DeleteItemButton = styled.button`
+  background: transparent;
+  border: none;
+`
